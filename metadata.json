@@ -1,0 +1,6 @@
+{
+  "name": "Twinkle Portfolio",
+  "description": "AI and Data Science Portfolio website for Twinkle, featuring skills, education, certifications, and projects.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

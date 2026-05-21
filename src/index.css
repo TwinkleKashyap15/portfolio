@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-outline-variant: #d6c2bd;
+  --color-on-surface-variant: #514440;
+  --color-primary: #835245;
+  --color-on-tertiary-fixed: #211a10;
+  --color-background-custom: #fff8f6;
+  --color-on-tertiary-container: #594f42;
+  --color-tertiary-fixed: #efe0cf;
+  --color-secondary-container: #ffca98;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #ffdbd1;
+  --color-on-primary-fixed-variant: #673b2f;
+  --color-primary-fixed-dim: #f7b8a7;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary-container: #7a532a;
+  --color-outline: #84736f;
+  --color-surface-container: #ffe9e3;
+  --color-tertiary-container: #cfc2b1;
+  --color-on-secondary: #ffffff;
+  --color-inverse-on-surface: #ffede8;
+  --color-on-error: #ffffff;
+  --color-tertiary-fixed-dim: #d2c4b3;
+  --color-surface-variant: #fadcd3;
+  --color-surface-container-highest: #fadcd3;
+  --color-on-tertiary-fixed-variant: #4f4538;
+  --color-on-background-custom: #271813;
+  --color-on-secondary-fixed-variant: #623f18;
+  --color-on-tertiary: #ffffff;
+  --color-surface-container-low: #fff1ed;
+  --color-surface: #fff8f6;
+  --color-secondary: #7d562d;
+  --color-surface-container-high: #ffe2d9;
+  --color-inverse-surface: #3e2c26;
+  --color-error: #ba1a1a;
+  --color-surface-dim: #f1d4cb;
+  --color-secondary-fixed-dim: #f0bd8b;
+  --color-primary-container: #f4b5a4;
+  --color-on-secondary-fixed: #2c1600;
+  --color-secondary-fixed: #ffdcbd;
+  --color-error-container: #ffdad6;
+  --color-on-primary: #ffffff;
+  --color-surface-tint: #835245;
+  --color-on-primary-container: #734538;
+  --color-tertiary: #675d4f;
+  --color-on-surface: #271813;
+  --color-inverse-primary: #f7b8a7;
+  --color-surface-bright: #fff8f6;
+  --color-on-primary-fixed: #331108;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background-color: #fff8f6;
+  color: #271813;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuASNW58HDlBzq9rWmVX7b-_ieOhUOskBWa0L1LEu-nIDb5TtfihFsmqrjES2uONwtvSCf4p_hRWwPgp-QGuEN1GM0bFMVM4q3jMekFn9RG0Cb-rUD7edR0ehQF6h5uh9kgLxbbVUVJccmwXnhXJu8PCwVNPsWB9naHzjLOHJ5lOwu72LQQsEJipvqG6cBMIy6FuglOb0nU6THJDD524Gp2rfi89U9-pd_PooQPC7_Tz-3cRZdaSBK0xrj17X-sDPojDEaaN1cDNMa4);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(131, 82, 69, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 24px 50px rgba(131, 82, 69, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(244, 181, 164, 0.22) 0%, rgba(255, 248, 246, 0) 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  animation: float-ambient 25s infinite alternate ease-in-out;
+}
+
+@keyframes float-ambient {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) rotate(4deg) scale(1.08);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(-4deg) scale(0.92);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: #835245;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.magnetic-btn:hover {
+  transform: scale(1.04) translateY(-1px);
+}
+
+.magnetic-btn:active {
+  transform: scale(0.96);
+}
+
+.sticky-nav-active {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: rgba(131, 82, 69, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(131, 82, 69, 0.05) !important;
+}
+
